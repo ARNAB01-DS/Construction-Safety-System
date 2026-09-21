@@ -40,7 +40,8 @@ async function loadModel(onProgress) {
 
   modelLoadPromise = (async () => {
     try {
-      ort.env.wasm.wasmPaths = '/node_modules/onnxruntime-web/dist/';
+      ort.env.wasm.wasmPaths = 'https://cdn.jsdelivr.net/npm/onnxruntime-web@1.27.0/dist/';
+
       const session = await ort.InferenceSession.create('/best.onnx', {
         executionProviders: ['wasm'],
         graphOptimizationLevel: 'all',
